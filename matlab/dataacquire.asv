@@ -20,4 +20,4 @@ T2=datacq(DATA30L,200,-30);
 T3=datacq(DATA60L,200,-60);
 T4=datacq(DATA60R,200,60);
 T=[T0;T1;T2;T3;T4];
-csvwrite('feat.csv',T);
+csvwrite('.csv',T);
