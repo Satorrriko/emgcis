@@ -44,7 +44,7 @@ switch type
   case 'ae'     ; fun = @jAverageEnergy;
 end
 if nargin < 3
-  opts = [];  
+  opts = []; 
 end
 feat = fun(X,opts);
 end

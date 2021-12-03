@@ -45,29 +45,29 @@ f5 = jfemg('rms', X);
 feat = [f1, f2, f3, f4, f5];
 
 
-% %% Example 2 : Extract 3 features with parameter   
-% % Generate a sample random signal X
-% fs = 1000;            % Sampling frequency 
-% Ts = 1 / fs;          % Period
-% t  = 0 : Ts : 0.25; 
-% X  = 0.01 * (cos(2 * pi * fs * t) + randn(1, length(t)));
-% 
-% % Generate a sample random signal X
-% fs = 1000;            % Sampling frequency 
-% Ts = 1 / fs;          % Period
-% t  = 0 : Ts : 0.25; 
-% X  = 0.01 * (cos(2 * pi * fs * t) + randn(1, length(t)));
-% 
-% % Zeros Crossing
-% opts.thres = 0.01;
-% f1 = jfemg('zc', X, opts); 
-% % Slope Sign Change
-% opts.thres = 0.01;
-% f2 = jfemg('ssc', X, opts);
-% % Temporal Moment
-% opts.order = 3;
-% f3 = jfemg('tm', X, opts);
-% 
-% % Feature vector
-% feat = [f1, f2, f3];
+%% Example 2 : Extract 3 features with parameter   
+% Generate a sample random signal X
+fs = 1000;            % Sampling frequency 
+Ts = 1 / fs;          % Period
+t  = 0 : Ts : 0.25; 
+X  = 0.01 * (cos(2 * pi * fs * t) + randn(1, length(t)));
+
+% Generate a sample random signal X
+fs = 1000;            % Sampling frequency 
+Ts = 1 / fs;          % Period
+t  = 0 : Ts : 0.25; 
+X  = 0.01 * (cos(2 * pi * fs * t) + randn(1, length(t)));
+
+% Zeros Crossing
+opts.thres = 0.01;
+f1 = jfemg('zc', X, opts); 
+% Slope Sign Change
+opts.thres = 0.01;
+f2 = jfemg('ssc', X, opts);
+% Temporal Moment
+opts.order = 3;
+f3 = jfemg('tm', X, opts);
+
+% Feature vector
+feat = [f1, f2, f3];
 
