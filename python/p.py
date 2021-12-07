@@ -1,5 +1,6 @@
 import numpy as np
 import neurokit2 as nk
+import matplotlib as mpl
 
 txt_path = 'D:\Developments\\00.EMG\git\emgcis\database\\00.txt'	# txt文本路径
 f = open(txt_path)
@@ -13,8 +14,10 @@ for data in data_lists:
     data2 = data1.strip('\n               \n')	# 去掉开头和结尾的换行符
     data3 = data2.split('               ')	# 把tab作为间隔符
     dataset.append(data3)	# 把这一行的结果作为元素加入列表dataset
-dataset.remove([''])
+for i in range(len(dataset)-1,-1,-1):
+    if dataset[i]==['']:
+        dataset.remove([''])
 dataset = np.array(dataset)
-print(dataset)
-for i in range(1,len(dataset)):
-    print(dataset(i))
+channel1=dataset[:,2]
+mpl
+print(channel1)
