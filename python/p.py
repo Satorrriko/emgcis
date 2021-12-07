@@ -1,23 +1,28 @@
 import numpy as np
-import neurokit2 as nk
-import matplotlib as mpl
+#import  neurokit2 as nk
+from matplotlib import pyplot as plt
 
-txt_path = 'D:\Developments\\00.EMG\git\emgcis\database\\00.txt'	# txt文本路径
+txt_path = 'C:\\Users\\ZJohnny\\Documents\\GitHub\\emgcis\\database\\0低通.txt'
 f = open(txt_path)
-data_lists = f.readlines()	#读出的是str类型
-ecg = nk.ecg_simulate(duration=10, heart_rate=70)
+data_lists = f.readlines()	#
+#ecg = nk.ecg_simulate(duration=10, heart_rate=70)
 
 dataset= []
-# 对每一行作循环
+# 
 for data in data_lists:
-    data1 = data.strip('\n')	# 去掉开头和结尾的换行符
-    data2 = data1.strip('\n               \n')	# 去掉开头和结尾的换行符
-    data3 = data2.split('               ')	# 把tab作为间隔符
-    dataset.append(data3)	# 把这一行的结果作为元素加入列表dataset
+    data1 = data.strip('\n')	# 
+    data2 = data1.strip('\n               \n')	# 
+    data3 = data2.split('               ')	# 
+    dataset.append(data3)	# 
 for i in range(len(dataset)-1,-1,-1):
     if dataset[i]==['']:
         dataset.remove([''])
 dataset = np.array(dataset)
-channel1=dataset[:,2]
-mpl
-print(channel1)
+channel1=dataset[:,1]
+channel1 = channel1.astype(np.float64)
+channel2=dataset[:,2]
+channel2 = channel2.astype(np.float64)
+plt.plot(channel1)
+plt.plot(channel2)
+#使用show展示图像
+plt.show()
