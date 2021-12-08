@@ -1,0 +1,7 @@
+function k=ctrl(a)
+switch a
+    case '0'
+    robot.keyPress    (java.awt.event.KeyEvent.VK_UP);
+    robot.keyRelease  (java.awt.event.KeyEvent.VK_UP);
+    case '1'
+        

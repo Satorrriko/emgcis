@@ -11,12 +11,11 @@ t = 1;
 x = 0;
 while(t<interval)
 b = str2num(fgetl(s)); %用函数fget(s)从缓冲区读取串口数据，当出现终止符（换行符）停止。
-if length(b)~=0%开始接收数据
-    for i=[1:100]%采样100个点
+if length(b)~=0%kai'shi
+    for i=[1:100]%经过1s
         b = str2num(fgetl(s));
-        DATA(i,1:2)=b(1:2);%数据按序列放入DATA待处理
+        DATA(i,1:2)=b(1:2);
     end
-    %循环完成，对100点进行处理
     f1(1)= jfemg('emav', DATA(:,1));
     f1(2) = jfemg('emav', DATA(:,2));
     %    Average Amplitude Change
@@ -36,8 +35,7 @@ if length(b)~=0%开始接收数据
     f5(2) = jfemg('rms', DATA(:,2));
 
     k=[f1 f2 f3 f4 f5];
-    %合并得到特征
-    ctrl(trainedModel1.predictFcn(k))%根据预测标签，使用ctrl函数进行方向控制
+    ctrl(trainedModel1.predictFcn(k))
 end
 t = t+passo;
 

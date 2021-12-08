@@ -2,7 +2,7 @@ clc;
 clear;
 close all;
 import java.awt.Robot;
-import java.awt.event.*;%控制键盘需要
+import java.awt.event.*;
 
 DATA0=load("D:\Developments\00.EMG\git\emgcis\database\0.txt",'-ASCII');
 %DATA0=lowpass(DATA0,200,200);
@@ -59,19 +59,18 @@ test1(3,:)=test1(3,:)-base3;
 fs = 200;            % Sampling frequency
 Ts = 1 / fs;          % Period
 t  = 0 : Ts : 2;
-%%
-%训练只用了60度的数据和静止的数据
-%dataacq(数据名,数据长度,标签)
-T0=datacq(DATA0,100,2);
-%T1=datacq(DATA30R,100,3);
-%T2=datacq(DATA30L,100,1);
-T3=datacq(DATA60L,100,1);
-T4=datacq(DATA60R,100,3);
-%T5=datacq(DATA45R,100,3);
-%T6=datacq(DATA45L,100,1);
-T7=datacq(TESTDATA,100,1);
-T8=datacq(TESTDATA2,100,1);
-T9=datacq(test1,100,1);
 
-T=[T0;T3;T4];
+%dataacq(数据名,数据长度,标签)
+T0=datacq(DATA0,200,0);
+% T1=datacq(DATA30R,100,20);
+% T2=datacq(DATA30L,100,-20);
+% T3=datacq(DATA60L,100,-60);
+% T4=datacq(DATA60R,100,60);
+% T5=datacq(DATA45R,100,45);
+% T6=datacq(DATA45L,100,-45);
+% T7=datacq(TESTDATA,100,1);
+% T8=datacq(TESTDATA2,100,1);
+% T9=datacq(test1,100,1);
+
+T=[T0;T1;T2;T3;T4;T5;T6];
 csvwrite('feat.csv',T);
