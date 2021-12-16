@@ -55,6 +55,20 @@ test1=load("D:\Developments\00.EMG\git\emgcis\database\00.txt",'-ASCII');
 %test1=lowpass(test1,200,200);
 test1(2,:)=test1(2,:)-base2;
 test1(3,:)=test1(3,:)-base3;
+%%
+DATAmid=load("C:\Users\Komeiji Satori\Desktop\MyoFile\SignalTimeRecord\5.txt",'-ASCII');
+%test1=lowpass(test1,200,200);
+%base11=sum(DATAmid(2,:))/length(DATAmid(2,:));
+%DATAmid(2,:)=DATAmid(2,:)-base11;
+
+DATAup=load("C:\Users\Komeiji Satori\Desktop\MyoFile\SignalTimeRecord\8.txt",'-ASCII');
+%test1=lowpass(test1,200,200);
+%DATAup(2,:)=DATAup(2,:)-base11;
+
+DATAdown=load("C:\Users\Komeiji Satori\Desktop\MyoFile\SignalTimeRecord\2.txt",'-ASCII');
+%test1=lowpass(test1,200,200);
+%DATAdown(2,:)=DATAdown(2,:)-base11;
+%%
 
 fs = 200;            % Sampling frequency
 Ts = 1 / fs;          % Period
@@ -75,3 +89,16 @@ T9=datacq(test1,100,1);
 
 T=[T0;T3;T4];
 csvwrite('feat.csv',T);
+
+%dataacq(数据名,数据长度,标签)
+y0=datacq1(DATAmid,100,5);
+%T1=datacq(DATA30R,100,3);
+%T2=datacq(DATA30L,100,1);
+y1=datacq1(DATAup,100,6);
+y2=datacq1(DATAdown,100,4);
+%T5=datacq(DATA45R,100,3);
+%T6=datacq(DATA45L,100,1);
+
+
+y=[y0;y1;y2];
+csvwrite('feat.csv',y);
